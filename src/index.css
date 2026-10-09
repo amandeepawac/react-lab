@@ -1,1 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Manrope", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --color-ink: #202c29;
+  --color-muted: #76807c;
+  --color-accent: #218365;
+  --color-line: #e1e7e3;
+  --color-code: #202d29;
+}
+
+@layer base {
+  body {
+    @apply m-0 bg-[#fafcfb] font-sans text-ink antialiased;
+  }
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-tap-highlight-color: transparent;
+  }
+  button {
+    @apply cursor-pointer;
+  }
+  button:disabled {
+    @apply cursor-not-allowed opacity-40;
+  }
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid #218365;
+    outline-offset: 4px;
+  }
+  h1,
+  h2,
+  h3,
+  p {
+    overflow-wrap: anywhere;
+  }
+  input,
+  select,
+  textarea {
+    min-width: 0;
+  }
+}
+
+@layer components {
+  .sidebar {
+    @apply invisible fixed inset-y-0 left-0 z-40 flex w-64 -translate-x-full flex-col border-r border-line bg-white transition-transform lg:visible lg:translate-x-0;
+  }
+  .sidebar-open {
+    @apply visible translate-x-0;
+  }
+  .brand-mark {
+    @apply flex size-9 items-center justify-center rounded-lg bg-accent text-white;
+  }
+  .search-box {
+    @apply flex items-center gap-2 rounded-md border border-line bg-[#fafcfb] px-3 py-2.5;
+  }
+  .search-box input {
+    @apply w-full bg-transparent text-xs outline-none;
+  }
+  .nav-link {
+    @apply flex items-center gap-3 rounded-md px-3 py-2 text-xs font-medium text-muted transition-colors hover:bg-[#f3f7f4] hover:text-ink;
+  }
+  .nav-active {
+    @apply bg-[#eaf4ed] font-semibold text-accent;
+  }
+  .nav-dot {
+    @apply size-1 rounded-full bg-current opacity-60;
+  }
+  .sidebar-footer {
+    @apply flex items-center justify-between gap-2 border-t border-line px-5 py-4 text-[10px] text-muted;
+  }
+  .topbar {
+    @apply flex h-16 items-center justify-between gap-4 border-b border-line bg-white/80 px-5 sm:px-10 xl:px-14;
+  }
+  .eyebrow {
+    @apply flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.12em] text-accent;
+  }
+  .button {
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-md bg-accent px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#196d53];
+  }
+  .button-secondary {
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-md border border-line bg-white px-4 py-2 text-xs font-semibold hover:bg-[#f3f7f4];
+  }
+  .icon-button {
+    @apply flex size-9 shrink-0 items-center justify-center rounded-md border border-line bg-white text-ink transition-colors hover:bg-[#eaf4ed];
+  }
+  .stat-icon {
+    @apply flex size-10 shrink-0 items-center justify-center rounded-lg border border-line bg-white;
+  }
+  .category-tab {
+    @apply border-b-2 border-transparent pb-3 text-xs font-medium text-muted hover:text-ink;
+  }
+  .category-active {
+    @apply border-accent font-semibold text-accent;
+  }
+  .lesson-card {
+    @apply rounded-lg border border-line bg-white p-5 transition-colors hover:border-accent hover:bg-[#f8fcf9];
+  }
+  .lesson-symbol {
+    @apply flex size-9 items-center justify-center rounded-md bg-[#edf5ef] text-accent;
+  }
+  .feature-symbol {
+    @apply bg-[#eef2ff] text-blue-600;
+  }
+  .badge {
+    @apply rounded-sm bg-[#eaf4ed] px-2 py-1 text-[10px] font-medium text-accent;
+  }
+  .demo-panel {
+    @apply rounded-lg border border-line bg-white p-5 sm:p-7;
+  }
+  .demo-label {
+    @apply text-sm font-semibold;
+  }
+  .field {
+    @apply w-full rounded-md border border-line bg-white px-3 py-2.5 text-sm;
+  }
+  .lesson-pagination {
+    @apply flex min-w-0 items-center gap-3 text-sm font-semibold text-accent;
+  }
+  .lesson-pagination span {
+    @apply min-w-0 wrap-anywhere;
+  }
+  .lesson-pagination svg {
+    @apply shrink-0;
+  }
+  .lesson-pagination small {
+    @apply mb-1 block text-[10px] font-normal text-muted;
+  }
+}
+
+.overview-intro {
+  background-image: radial-gradient(#dce7df 0.7px, transparent 0.7px);
+  background-size: 18px 18px;
+  background-position: right;
+}
+.react-art {
+  position: absolute;
+  right: 2%;
+  top: 6px;
+  width: 270px;
+  height: 265px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.react-art img {
+  width: 180px;
+  height: 165px;
+  filter: hue-rotate(44deg) saturate(0.4);
+}
+.art-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 22px;
+  padding: 9px 13px;
+  border: 1px solid #e1e7e3;
+  border-radius: 4px;
+  background: white;
+  color: #76807c;
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+.page-enter {
+  animation: page-enter 220ms ease-out both;
+}
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
