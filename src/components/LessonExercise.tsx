@@ -22,7 +22,7 @@ export default function LessonExercise({ slug }: { slug: string }) {
         <summary className="w-fit cursor-pointer text-sm font-semibold text-accent">
           Reveal solution
         </summary>
-        <pre className="mt-4 overflow-x-auto rounded-md bg-code p-4 font-mono text-xs leading-6 text-[#c8e9d7]">
+        <pre className="mt-4 overflow-x-auto rounded-md bg-code p-4 font-mono text-xs leading-6 text-code-ink">
           <code>{exercise.solution}</code>
         </pre>
         <p className="mt-3 text-sm leading-6 text-muted">

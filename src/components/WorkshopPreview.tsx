@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 
 export default function WorkshopPreview() {
   return (
-    <div className="border-l-2 border-accent bg-[#f1f8f3] p-5">
+    <div className="border-l-2 border-accent bg-accent-soft p-5">
       <p className="flex items-center gap-2 text-sm font-semibold text-accent">
         <Check size={16} />
         Workshop module loaded

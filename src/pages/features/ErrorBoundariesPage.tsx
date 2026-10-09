@@ -6,7 +6,7 @@ import { useState } from "react";
 function FragileWidget({ fail }: { fail: boolean }) {
   if (fail) throw new Error("A deliberate render error from the demo widget.");
   return (
-    <p className="border-l-2 border-accent bg-[#f1f8f3] p-4 text-sm text-accent">
+    <p className="border-l-2 border-accent bg-accent-soft p-4 text-sm text-accent">
       The widget is rendering normally.
     </p>
   );

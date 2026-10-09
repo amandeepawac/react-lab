@@ -111,7 +111,7 @@ export default function LessonPage({
             {copied ? "Copied" : "Copy"}
           </button>
         </div>
-        <pre className="overflow-x-auto p-5 text-[13px] leading-7 text-[#c8e9d7]">
+        <pre className="overflow-x-auto p-5 text-[13px] leading-7 text-code-ink">
           <code>{code}</code>
         </pre>
         {copyError && (

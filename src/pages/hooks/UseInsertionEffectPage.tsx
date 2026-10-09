@@ -2,7 +2,7 @@ import LessonPage from "@/components/LessonPage";
 import { useInsertionEffect, useState } from "react";
 
 export default function UseInsertionEffectPage() {
-  const [color, setColor] = useState("#218365");
+  const [color, setColor] = useState("#087ea4");
   useInsertionEffect(() => {
     const style = document.createElement("style");
     style.textContent = `.insertion-example { border-color: ${color}; color: ${color}; }`;
