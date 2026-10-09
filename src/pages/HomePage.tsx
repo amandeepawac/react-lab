@@ -19,8 +19,10 @@ export default function HomePage() {
     (lesson) =>
       (category === "All lessons" ||
         (category === "Hooks"
-          ? lesson.group !== "React features"
-          : lesson.group === "React features")) &&
+          ? lesson.slug.startsWith("hooks/")
+          : category === "Features"
+            ? lesson.group === "React features"
+            : lesson.group === "Decision guides")) &&
       `${lesson.title} ${lesson.description}`
         .toLowerCase()
         .includes(query.toLowerCase()),
@@ -66,7 +68,7 @@ export default function HomePage() {
         {[
           {
             icon: Braces,
-            value: `${lessons.filter((lesson) => lesson.group !== "React features").length} hooks`,
+            value: `${lessons.filter((lesson) => lesson.slug.startsWith("hooks/")).length} hooks`,
             label: "Every built-in hook, explained",
             color: "text-accent",
           },
@@ -78,8 +80,8 @@ export default function HomePage() {
           },
           {
             icon: CircleDot,
-            value: "Learn by doing",
-            label: "Live examples in every lesson",
+            value: `${lessons.filter((lesson) => lesson.group === "Decision guides").length} guides`,
+            label: "Choose the right tool for the task",
             color: "text-orange-600",
           },
         ].map(({ icon: Icon, value, label, color }) => (
@@ -116,7 +118,7 @@ export default function HomePage() {
             aria-label="Lesson category"
             className="flex gap-5"
           >
-            {["All lessons", "Hooks", "Features"].map((tab) => (
+            {["All lessons", "Hooks", "Features", "Guides"].map((tab) => (
               <button
                 key={tab}
                 role="tab"

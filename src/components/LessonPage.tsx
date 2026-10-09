@@ -1,4 +1,5 @@
 import { lessons } from "@/data/lessons";
+import LessonExercise from "@/components/LessonExercise";
 import {
   ArrowLeft,
   ArrowRight,
@@ -126,6 +127,7 @@ export default function LessonPage({
           <p className="mt-1 text-sm leading-6 text-muted">{pitfall}</p>
         </div>
       </aside>
+      {lesson && <LessonExercise slug={lesson.slug} />}
       <a
         href={docs ?? `https://react.dev/reference/react/${title}`}
         target="_blank"

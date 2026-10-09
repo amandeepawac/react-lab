@@ -197,6 +197,27 @@ export const lessons = [
     description: "Write simple code. Let React optimize.",
     component: lazy(() => import("@/pages/features/CompilerPage")),
   },
+  {
+    slug: "guides/state-or-reducer",
+    title: "useState or useReducer?",
+    group: "Decision guides",
+    description: "Choose a state model for your workflow.",
+    component: lazy(() => import("@/pages/guides/StateOrReducerPage")),
+  },
+  {
+    slug: "guides/state-or-ref",
+    title: "State or refs?",
+    group: "Decision guides",
+    description: "Know which changes should rerender.",
+    component: lazy(() => import("@/pages/guides/StateOrRefPage")),
+  },
+  {
+    slug: "guides/effects-or-events",
+    title: "Effects or events?",
+    group: "Decision guides",
+    description: "Separate synchronization from commands.",
+    component: lazy(() => import("@/pages/guides/EffectsOrEventsPage")),
+  },
 ];
 
 export const groups = [
@@ -206,4 +227,5 @@ export const groups = [
   "Performance",
   "Advanced",
   "React features",
+  "Decision guides",
 ];

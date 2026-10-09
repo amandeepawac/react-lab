@@ -41,8 +41,8 @@ extension (`esbenp.prettier-vscode`) and the ESLint extension (`dbaeumer.vscode-
 ## Lessons
 
 Every lesson has its own lazy-loaded route and page module, a what/why/how
-explanation, an interactive scenario, a copyable code excerpt, a caution, and
-a link to the official React documentation.
+explanation, an interactive scenario, a copyable code excerpt, a caution, a
+practice challenge with a revealable solution, and official documentation.
 
 - State: `useState`, `useReducer`, `useContext`
 - Effects: `useEffect`, `useEffectEvent`, `useLayoutEffect`, `useInsertionEffect`
@@ -52,6 +52,12 @@ a link to the official React documentation.
   `useOptimistic`, and React DOM's `useFormStatus`
 - Features: `use`, Suspense/lazy, Activity, form Actions, ref-as-prop, portals,
   error boundaries, custom hooks, and React Compiler
+- Decision guides: `useState` vs `useReducer`, state vs refs, and effects vs events
+
+Practical scenarios include a validated checkout with back navigation, a shared
+storefront language preference, cancellable workshop search with retry and error
+states, optimistic task editing with rollback, and non-urgent product filtering.
+The overview has separate Hooks, Features, and Guides filters.
 
 `use` is a resource-reading API rather than a conventional hook. `useFormStatus`
 comes from `react-dom`. Activity and useEffectEvent require React 19.2.
@@ -63,6 +69,7 @@ src/
   App.tsx                 Router composition
   components/             Shared layout, lesson template, and demo components
   data/lessons.ts          Catalog and explicit lazy page imports
+  data/exercises.ts        Per-lesson challenges and solutions
   hooks/                  Reusable custom hooks
   lib/demoApi.ts          Local async simulation helper
   pages/
@@ -70,12 +77,15 @@ src/
     NotFoundPage.tsx      Unknown-route fallback
     hooks/               One module for each hook
     features/            One module for each feature
+    guides/              Interactive hook comparison guides
   index.css               Tailwind theme and shared component classes
 ```
 
 To add a lesson, create a default-exported page under `pages/`, use the shared
 `LessonPage` component, and register its slug and lazy import in `data/lessons.ts`.
 The sidebar, overview, and previous/next navigation use that catalog.
+Add an exercise keyed by the lesson slug in `data/exercises.ts`; the shared
+lesson template renders it automatically.
 
 ## Notes
 
